@@ -6,15 +6,14 @@ import CheckResult from '../../ui/home/components/CheckResult';
 import styled from 'styled-components';
 
 const Container = styled.div`
-    position: relative;
+    position: relative;    
     height: 100vh; /* 100% da altura da viewport */
 `
 
 const Action = styled.div`
-    position: absolute;
-    top: 10%;
+    position: absolute;    
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%);
 `
 
 const Home = () => {

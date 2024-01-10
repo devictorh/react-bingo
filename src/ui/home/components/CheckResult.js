@@ -6,7 +6,7 @@ const Container = styled.div`
 `
 
 const Grid = styled.table`
-    
+    width: 100%;
     border-collapse: collapse;
     margin: 50px;
     font-family: 'Arial', sans-serif;
@@ -15,27 +15,24 @@ const Grid = styled.table`
 `
 
 const Thead = styled.th`
-    padding: 12px;    
+    padding: 12px;
     background-color: greenyellow;
     border-bottom: 1px solid #ddd;
-    text-align: center;    
+    text-align: center;
     width: 220px;
     font-weight: bold;
     font-size: 72px;
-
 `
 
-const TRow = styled.tr`
-    padding: 12px;
-    text-align: center;    
+const BingoNumber = styled.div`
     font-size: 36px;
-
+    height: 100%;
 `
 
 const TCol = styled.td`
     padding: 10px;
-    justify-content: center;
-    text-align: center;
+    height: 100%;
+    position: relative;
 `
 
 const FrameResults = () => {
@@ -65,65 +62,27 @@ const FrameResults = () => {
 
     return(
         <Container>
-            <Grid>
-                <table>
-                    <thead>
-                        <tr>
-                            <Thead>B</Thead>
-                            <Thead>I</Thead>
-                            <Thead>N</Thead>
-                            <Thead>G</Thead>
-                            <Thead>O</Thead>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <TCol>
-                            {
-                                bingoCard.b.map((number) => (
-                                    <TRow>
-                                        {Object.keys(number)[0]}
-                                    </TRow>
-                                ))
-                            }
+            <Grid>                
+                <thead>
+                    <tr>
+                        <Thead>B</Thead>
+                        <Thead>I</Thead>
+                        <Thead>N</Thead>
+                        <Thead>G</Thead>
+                        <Thead>O</Thead>
+                    </tr>
+                </thead>
+                <tbody>
+                    {Object.keys(bingoCard).map((letter) => (
+                        <TCol key={letter}>
+                            {bingoCard[letter].map((numberObj, index) => (
+                                <BingoNumber key={index}>
+                                    {Object.keys(numberObj)[0]}
+                                </BingoNumber>
+                            ))}
                         </TCol>
-                        <TCol>
-                            {
-                                bingoCard.i.map((number) => (
-                                    <TRow>
-                                        {Object.keys(number)[0]}
-                                    </TRow>
-                                ))
-                            }
-                        </TCol> 
-                        <TCol>
-                            {
-                                bingoCard.n.map((number) => (
-                                    <TRow>
-                                        {Object.keys(number)[0]}
-                                    </TRow>
-                                ))
-                            }
-                        </TCol> 
-                        <TCol>
-                            {
-                                bingoCard.g.map((number) => (
-                                    <TRow>
-                                        {Object.keys(number)[0]}
-                                    </TRow>
-                                ))
-                            }
-                        </TCol> 
-                        <TCol>
-                            {
-                                bingoCard.o.map((number) => (
-                                    <TRow>
-                                        {Object.keys(number)[0]}
-                                    </TRow>
-                                ))
-                            }
-                        </TCol>                     
-                    </tbody>
-                </table>
+                    ))}
+                </tbody>                
             </Grid>
         </Container>
     )
