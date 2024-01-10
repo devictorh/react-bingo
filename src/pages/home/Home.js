@@ -2,12 +2,13 @@ import React from 'react';
 import Footer from "../../ui/home/components/Footer"
 import Header from '../../ui/home/components/Header';
 import CheckResult from '../../ui/home/components/CheckResult';
+import Buttons from '../../ui/home/components/FrameAction';
 
 import styled from 'styled-components';
 
 const Container = styled.div`
-    position: relative;    
-    height: 100vh; /* 100% da altura da viewport */
+    position: relative;
+    height: 100vh;
 `
 
 const Action = styled.div`
@@ -23,6 +24,7 @@ const Home = () => {
             <Container>
                 <Action>
                     <CheckResult/>
+                    <Buttons />
                 </Action>
             </Container>
             <Footer />

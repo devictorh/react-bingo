@@ -27,8 +27,14 @@ const Thead = styled.th`
 const BingoNumber = styled.div`
     font-size: 36px;
     height: 100%;
+    justify-content: center;
+    text-align: center;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #000;
+    margin-bottom: 10px;
 `
-
+    
 const TCol = styled.td`
     padding: 10px;
     height: 100%;
