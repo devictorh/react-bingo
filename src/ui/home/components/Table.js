@@ -1,49 +1,50 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 
 const Container = styled.div`
-    width: 100%;
+    max-width: 100%;
+    height: 90%; /* Alterado para 100% para ocupar a altura total do Container pai */
 `
 
 const Grid = styled.table`
     width: 100%;
     border-collapse: collapse;
-    margin: 50px;
     font-family: 'Arial', sans-serif;
     border: 1px solid #ddd;
-    justify-content: center;
 `
 
 const Thead = styled.th`
     padding: 12px;
-    background-color: greenyellow;
+    font-family: Blockt;    
     border-bottom: 1px solid #ddd;
-    text-align: center;
-    width: 220px;
-    font-weight: bold;
-    font-size: 72px;
+    text-align: center;    
+    font-size: 32px;
+    background-color: rgb(
+        ${() => Math.floor(Math.random() * 256)},
+        ${() => Math.floor(Math.random() * 256)},
+        ${() => Math.floor(Math.random() * 256)}
+    );
 `
 
 const BingoNumber = styled.div`
-    font-size: 36px;
-    height: 100%;
+    font-size: 14px;
+    height: 30px;
+    box-sizing: border-box;
+    padding: 6px;
+    border-radius: 5px;
+    border: 1px solid #000;
+    margin-bottom: 5px;
     justify-content: center;
     text-align: center;
-    padding: 12px;
-    border-radius: 10px;
-    border: 1px solid #000;
-    margin-bottom: 10px;
 `
-    
+
 const TCol = styled.td`
     padding: 10px;
-    height: 100%;
-    position: relative;
 `
 
 const FrameResults = () => {
     const [results, setResults] = useState([])
-    
+
     const bingoCard = {
         'b': [],
         'i': [],
@@ -51,7 +52,7 @@ const FrameResults = () => {
         'g': [],
         'o': []
     }
-        
+
     const generateNumbers = (min, max) => {
         const numbers = [];
         for (let i = min; i <= max; i++) {
@@ -59,7 +60,7 @@ const FrameResults = () => {
         }
         return numbers;
     };
-        
+
     bingoCard.b = generateNumbers(1, 15);
     bingoCard.i = generateNumbers(16, 30);
     bingoCard.n = generateNumbers(31, 45);
@@ -89,7 +90,7 @@ const FrameResults = () => {
                         </TCol>
                     ))}
                 </tbody>                
-            </Grid>
+            </Grid>            
         </Container>
     )
 }

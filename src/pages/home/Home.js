@@ -1,20 +1,25 @@
 import React from 'react';
 import Footer from "../../ui/home/components/Footer"
 import Header from '../../ui/home/components/Header';
-import CheckResult from '../../ui/home/components/CheckResult';
-import Buttons from '../../ui/home/components/FrameAction';
+import CheckResult from '../../ui/home/components/Table';
+import Buttons from '../../ui/home/components/Button';
+import Result from '../../ui/home/components/Result';
 
 import styled from 'styled-components';
 
 const Container = styled.div`
     position: relative;
-    height: 100vh;
+    width: 100%;
+    max-width: 600px;
+    height: 300px;
+    margin: 0 auto;
 `
 
 const Action = styled.div`
-    position: absolute;    
-    left: 50%;
-    transform: translate(-50%);
+    justify-content: space-between;
+    box-sizing: border-box;
+    align-items: flex-end;
+    padding: 20px;
 `
 
 const Home = () => {
@@ -22,11 +27,12 @@ const Home = () => {
         <>
             <Header />
             <Container>
+                <Result />
                 <Action>
-                    <CheckResult/>
-                    <Buttons />
+                    <CheckResult/>                    
                 </Action>
-            </Container>
+                <Buttons />
+            </Container>            
             <Footer />
         </>        
     )
