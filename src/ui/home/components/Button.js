@@ -5,7 +5,7 @@ const Container = styled.div`
     position: relative;
     display: flex;
     flex-direction: column;
-    align-items: center;         
+    align-items: center;
 `
 
 const Button = styled.button`
@@ -14,7 +14,7 @@ const Button = styled.button`
     width: 100%;
     max-width: 300px;
     height: 30px;
-    margin-bottom: 10px;
+    margin-top: 10px;
     border-radius: 50% 20% / 10% 40%;
     font-family: Molot;
 
@@ -27,13 +27,22 @@ const Button = styled.button`
     }
 `
 
-const Buttons = () => {
+const Buttons = (props) => {
+
+    const handleSort = () => {
+        props.onSort();    
+    }
+
+    const handleNewgame = () => {
+        props.onNewGame();
+    }
+
     return(
         <Container>
-            <Button>
+            <Button onClick={handleSort}>
                 SORTEAR
             </Button>
-            <Button>
+            <Button onClick={handleNewgame}>
                 NOVO JOGO
             </Button>
         </Container>

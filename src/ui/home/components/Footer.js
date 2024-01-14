@@ -13,7 +13,7 @@ const Container = styled.footer`
 
 const Footer = () => {
     return (
-        <Container>&copywrite VhT1 2024</Container>
+        <Container>&#169; VhT1 2024</Container>
     )
 }
 

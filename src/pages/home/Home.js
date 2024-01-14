@@ -1,9 +1,7 @@
 import React from 'react';
 import Footer from "../../ui/home/components/Footer"
 import Header from '../../ui/home/components/Header';
-import CheckResult from '../../ui/home/components/Table';
-import Buttons from '../../ui/home/components/Button';
-import Result from '../../ui/home/components/Result';
+import Game from '../../ui/home/components/Game';
 
 import styled from 'styled-components';
 
@@ -26,13 +24,11 @@ const Home = () => {
     return (
         <>
             <Header />
-            <Container>
-                <Result />
+            <Container>                
                 <Action>
-                    <CheckResult/>                    
+                    <Game />                    
                 </Action>
-                <Buttons />
-            </Container>            
+                </Container>            
             <Footer />
         </>        
     )
