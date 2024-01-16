@@ -20,8 +20,11 @@ const Button = styled.button`
     font-size: 18px;
 
     &:hover {
-        color: #fffec6;
-        background-color: #69a2a8;        
+        background-color: rgb(
+            ${() => Math.floor(Math.random() * 256)},
+            ${() => Math.floor(Math.random() * 256)},
+            ${() => Math.floor(Math.random() * 256)}
+        );        
     }
 `
 

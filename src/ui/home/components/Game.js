@@ -21,9 +21,12 @@ const Thead = styled.th`
     font-family: Blockt;    
     border-bottom: 1px solid #ddd;
     text-align: center;    
-    font-size: 46px;
-    color: #fffec6;
-    background-color: #69a2a8;
+    font-size: 46px;    
+    background-color: rgb(
+        ${() => Math.floor(Math.random() * 256)},
+        ${() => Math.floor(Math.random() * 256)},
+        ${() => Math.floor(Math.random() * 256)}
+    );
 `
 
 const BingoNumber = styled.div`
@@ -193,7 +196,7 @@ const Game = () => {
                                 <BingoNumber 
                                     key={index}
                                     style={{
-                                        backgroundColor: numberObj[Object.keys(numberObj)[0]] ? '#da1a29' : '#f0e5c9',
+                                        backgroundColor: numberObj[Object.keys(numberObj)[0]] ? '#da1a29' : '#c6e5d9',
                                         color: numberObj[Object.keys(numberObj)[0]] ? 'white' : 'black'
                                     }}
                                 > 

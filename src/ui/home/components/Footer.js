@@ -6,9 +6,7 @@ const Container = styled.footer`
     font-size: 18px;
     text-align: center;
     bottom: 0;
-    position: fixed;
-    color: #fffec6;
-    background-color: #69a2a8; 
+    position: fixed;    
     box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.9);
 `
 

@@ -7,9 +7,6 @@ const Container = styled.header`
     font-family: Blockt;
     width: 100%;
     height: 100%;
-    color: #fffec6;
-    background-color: #69a2a8;
-    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.9);
 `
 
 const Header = () => {

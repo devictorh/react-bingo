@@ -22,9 +22,8 @@ const Container = styled.div`
     text-align: center;
     margin-top: 30px;
     width: 100%;
-    height: 60px;    
-    background-color: #f0e5c9;    
-    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.4);
+    height: 60px;        
+    box-shadow: 0px 20px 10px rgba(0, 0, 0, 0.4);
 `
 
 const Result = (props) => {
