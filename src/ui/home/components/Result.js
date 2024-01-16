@@ -3,19 +3,21 @@ import styled from "styled-components";
 
 const Container = styled.div`
     text-align: center;    
-    font-size: 42px;
-    font-family: Molot;
+    font-size: 36px;
+    font-family: Blockt;
     margin-top: 30px;
     width: 100%;
     height: 60px;
-    background-color: #f0f0f0;
-    box-shadow: 0px 10px 8px rgba(0, 0, 0, 0.3);
+    color: #654a8f;
+    background-color: #f0e5c9;
+
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.4);
 `
 
-const Result = () => {
+const Result = (props) => {
     return (
         <Container>
-            <p>Bingo !!!</p>
+            <p>{props.result}</p>
         </Container>
     )
 }

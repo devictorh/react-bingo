@@ -15,9 +15,9 @@ const GlobalStyles = createGlobalStyle`
   figure,
   hr {
     margin: 0;
-    padding: 0;
+    padding: 0;    
   }
-
+  
   /* Adicione outras regras de reset conforme necessário */
 `;
 

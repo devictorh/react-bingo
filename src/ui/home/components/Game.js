@@ -6,7 +6,7 @@ import styled from "styled-components";
 
 const Container = styled.div`
     max-width: 100%;
-    height: 90%;
+    height: 90%;    
 `
 
 const Grid = styled.table`
@@ -46,6 +46,9 @@ const TCol = styled.td`
 `
 
 const Game = () => {
+    const [currentResult, setCurrentResult] = useState('BOA SORTE');
+    const [totalResults, setTotalResults] = useState([]);
+
     const [bingoCard, setBingoCard] = useState({
         b: [],
         i: [],
@@ -55,21 +58,33 @@ const Game = () => {
     })
 
     const handleSort = () => {
-        setBingoCard(
-            checkedNumber()
-        );
+        if (!checkEndGame()){
+            setBingoCard(
+                checkedNumber()
+            );
+        }else{
+            alert('end game!!')
+        }
     }
 
     const handleNewGame = () => {
         initializeBingoCard();
     }
 
+    const checkEndGame = () => {
+        var isEndGame = false;
+        if (totalResults.length == 75){
+            isEndGame = true;
+        }
+
+        return isEndGame
+    }
+
     const checkedNumber = () => {
-        let newNumber;
+        var newNumber;
       
         function generateNewNumber() {
             newNumber = getRandomIntInclusive(1, 75);
-            console.log('New Number Generate: ' + newNumber);
         }
       
         function checkNumberNotChecked() {
@@ -85,13 +100,36 @@ const Game = () => {
             }      
             return true;
         }
+
+        function getLetterByNumber(number) {
+            var numberResult = '';
+
+            if (number >= 1 && number <= 15){
+                numberResult = 'B:' + number;
+            }else if (number >= 16 && number <= 30){
+                numberResult = 'I:' + number;
+            }else if (number >= 31 && number <= 45){
+                numberResult = 'N:' + number;
+            }else if (number >= 46 && number <= 60){
+                numberResult = 'G:' + number;
+            }else if (number >= 61 && number <= 75){
+                numberResult = 'O:' + number;
+            }
+
+            return numberResult;
+        }
       
         generateNewNumber();
-        checkNumberNotChecked();
+
+        if (checkNumberNotChecked()) {
+            var newNumberDescription = getLetterByNumber(newNumber);
+            setCurrentResult(newNumberDescription);
+            setTotalResults(prevTotalResults => [...prevTotalResults, newNumber]);
+        }
       
         function findNumberToCheck(bingo) {
             return bingo.map((numberObj) => {
-                const key = Object.keys(numberObj)[0];            
+                const key = Object.keys(numberObj)[0];
                 return {
                     [key]: key == newNumber ? true : numberObj[key]
                 };
@@ -131,6 +169,9 @@ const Game = () => {
             'g': generateNumbers(46, 60),
             'o': generateNumbers(61, 75),
         });
+
+        setCurrentResult('BOA SORTE');
+        setTotalResults([]);
     };
 
     useEffect(() => {
@@ -139,7 +180,7 @@ const Game = () => {
 
     return(
         <Container>
-            <Result />
+            <Result result={currentResult}/>
             <Grid>
                 <thead>
                     <tr>
@@ -170,7 +211,7 @@ const Game = () => {
             </Grid>
 
             <Buttons onSort={handleSort} onNewGame={handleNewGame} />
-        </Container>        
+        </Container>
     )
 }
 
