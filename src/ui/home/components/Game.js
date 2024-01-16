@@ -6,7 +6,7 @@ import styled from "styled-components";
 
 const Container = styled.div`
     max-width: 100%;
-    height: 90%;    
+    height: 90%;
 `
 
 const Grid = styled.table`
@@ -17,13 +17,13 @@ const Grid = styled.table`
 `
 
 const Thead = styled.th`
-    padding: 12px;
+    padding: 5px;
     font-family: Blockt;    
     border-bottom: 1px solid #ddd;
     text-align: center;    
-    font-size: 32px;
+    font-size: 46px;
     color: #fffec6;
-    background-color: #cc5d4c;
+    background-color: #69a2a8;
 `
 
 const BingoNumber = styled.div`

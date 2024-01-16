@@ -13,13 +13,15 @@ const Button = styled.button`
     border-style: none;
     width: 100%;
     max-width: 300px;
-    height: 30px;
+    height: 40px;
     margin-top: 10px;
     border-radius: 50% 20% / 10% 40%;
-    font-family: Molot;
+    font-family: Blockt;
+    font-size: 18px;
 
     &:hover {
-        background-color: #cc5d4c;
+        color: #fffec6;
+        background-color: #69a2a8;        
     }
 `
 
