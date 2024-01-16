@@ -22,11 +22,8 @@ const Thead = styled.th`
     border-bottom: 1px solid #ddd;
     text-align: center;    
     font-size: 32px;
-    background-color: rgb(
-        ${() => Math.floor(Math.random() * 256)},
-        ${() => Math.floor(Math.random() * 256)},
-        ${() => Math.floor(Math.random() * 256)}
-    );
+    color: #fffec6;
+    background-color: #cc5d4c;
 `
 
 const BingoNumber = styled.div`
@@ -57,21 +54,19 @@ const Game = () => {
         o: []
     })
 
-    const handleSort = () => {
+    function handleSort() {
         if (!checkEndGame()){
             setBingoCard(
                 checkedNumber()
             );
-        }else{
-            alert('end game!!')
         }
     }
 
-    const handleNewGame = () => {
+    function handleNewGame() {
         initializeBingoCard();
     }
 
-    const checkEndGame = () => {
+    function checkEndGame() {
         var isEndGame = false;
         if (totalResults.length == 75){
             isEndGame = true;
@@ -146,14 +141,14 @@ const Game = () => {
     };
       
 
-    const getRandomIntInclusive = (min, max) => {
+    function getRandomIntInclusive(min, max) {
         min = Math.ceil(min);
         max = Math.floor(max);
 
         return Math.floor(Math.random() * (max - min + 1)) + min;
     }
 
-    const generateNumbers = (min, max) => {
+    function generateNumbers(min, max) {
         const numbers = [];
         for (let i = min; i <= max; i++) {
             numbers.push({ [i]: false });
@@ -161,7 +156,7 @@ const Game = () => {
         return numbers;
     };
 
-    const initializeBingoCard = () => {
+    function initializeBingoCard() {
         setBingoCard({
             'b': generateNumbers(1, 15),
             'i': generateNumbers(16, 30),

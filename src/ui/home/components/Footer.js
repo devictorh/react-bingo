@@ -7,8 +7,8 @@ const Container = styled.footer`
     text-align: center;
     bottom: 0;
     position: fixed;
-    color: #654a8f;
-    background-color: #d9cde3;; 
+    color: #fffec6;
+    background-color: #cc5d4c; 
     box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.9);
 `
 

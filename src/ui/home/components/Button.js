@@ -19,11 +19,7 @@ const Button = styled.button`
     font-family: Molot;
 
     &:hover {
-        background-color: rgb(
-            ${() => Math.floor(Math.random() * 256)},
-            ${() => Math.floor(Math.random() * 256)},
-            ${() => Math.floor(Math.random() * 256)}
-        );
+        background-color: #cc5d4c;
     }
 `
 
