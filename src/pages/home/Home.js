@@ -1,9 +1,10 @@
-import React from 'react';
-import Footer from "../../ui/home/components/Footer"
+import React, { useState } from "react";
 import Header from '../../ui/home/components/Header';
 import Game from '../../ui/home/components/Game';
+import Card from "../../ui/home/components/Card";
 
 import styled from 'styled-components';
+import Options from '../../ui/home/components/Options';
 
 const Container = styled.div`
     position: relative;
@@ -21,16 +22,25 @@ const Action = styled.div`
 `
 
 const Home = () => {
+    const [mode, setMode] = useState({'mode': ''});
+
+    function setCurrentMode(mode){
+        if (mode.trim() != '') {
+            setMode({'mode': mode})
+        }
+    }
+
     return (
         <>
             <Header />
-            <Container>                
-                <Action>
-                    <Game />                    
+            <Container>
+            {mode.mode == '' && <Options setMode={setCurrentMode} />}
+                <Action>  
+                    {mode.mode == 'card' && <Card />}
+                    {mode.mode == 'sorter' && <Game />}                    
                 </Action>
-                </Container>            
-            <Footer />
-        </>        
+            </Container>
+        </>
     )
 }
 

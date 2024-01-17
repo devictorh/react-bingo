@@ -3,6 +3,8 @@ import Result from "./Result";
 import Buttons from "./Button";
 
 import styled from "styled-components";
+import '../styles/fonts.css';
+
 
 const Container = styled.div`
     max-width: 100%;
@@ -47,7 +49,7 @@ const TCol = styled.td`
 
 const Game = () => {
     const [currentResult, setCurrentResult] = useState('BOA SORTE');
-    const [totalResults, setTotalResults] = useState([]);
+    const [totalResults, setTotalResults] = useState([]);    
 
     const [bingoCard, setBingoCard] = useState({
         b: [],

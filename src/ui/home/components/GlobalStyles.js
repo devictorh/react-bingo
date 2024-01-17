@@ -16,8 +16,7 @@ const GlobalStyles = createGlobalStyle`
   hr {
     margin: 0;
     padding: 0;    
-  }
-  
+  }  
   /* Adicione outras regras de reset conforme necessário */
 `;
 

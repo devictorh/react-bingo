@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import '../styles/fonts.css';
 
 const Container = styled.header`
     text-align: center;    
@@ -7,6 +8,14 @@ const Container = styled.header`
     font-family: Blockt;
     width: 100%;
     height: 100%;
+
+    p {
+        color: rgb(
+            ${() => Math.floor(Math.random() * 256)},
+            ${() => Math.floor(Math.random() * 256)},
+            ${() => Math.floor(Math.random() * 256)}
+        );
+    }
 `
 
 const Header = () => {

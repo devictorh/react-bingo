@@ -1,29 +1,19 @@
 import React from "react";
 
-import styled, { keyframes } from 'styled-components';
-
-const blink = keyframes`
-    0%, 50%, 100% {
-        opacity: 1;
-    }
-    25%, 75% {
-        opacity: 0;
-    }
-`;
+import styled from 'styled-components';
+import '../styles/fonts.css';
 
 const Value = styled.p`
-    color: #da1a29;
-    animation: ${blink} 4s infinite;
     font-size: 36px;
     font-family: Blockt;
 `
 
 const Container = styled.div`
     text-align: center;
-    margin-top: 30px;
+    margin: 30px 5px;
     width: 100%;
-    height: 60px;        
-    box-shadow: 0px 20px 10px rgba(0, 0, 0, 0.4);
+    height: 60px;    
+    
 `
 
 const Result = (props) => {

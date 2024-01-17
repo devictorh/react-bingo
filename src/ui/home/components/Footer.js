@@ -5,8 +5,8 @@ const Container = styled.footer`
     width: 100%;
     font-size: 18px;
     text-align: center;
+    position: fixed;
     bottom: 0;
-    position: fixed;    
     box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.9);
 `
 
