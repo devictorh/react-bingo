@@ -47,7 +47,7 @@ const TCol = styled.td`
     padding: 10px;
 `
 
-const Game = () => {
+const Game = (props) => {
     const [currentResult, setCurrentResult] = useState('BOA SORTE');
     const [totalResults, setTotalResults] = useState([]);    
 
@@ -69,6 +69,10 @@ const Game = () => {
 
     function handleNewGame() {
         initializeBingoCard();
+    }
+
+    function backToHomePage() {
+        props.setModeGame('');
     }
 
     function checkEndGame() {
@@ -210,7 +214,14 @@ const Game = () => {
                 </tbody>
             </Grid>
 
-            <Buttons onSort={handleSort} onNewGame={handleNewGame} />
+            <Buttons 
+                click1={handleSort} 
+                click2={handleNewGame}
+                click3={backToHomePage}
+                name1={'Sortear'}
+                name2={'Novo jogo'}
+                name3={'Voltar'}
+            />
         </Container>
     )
 }

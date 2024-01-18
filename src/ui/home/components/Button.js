@@ -28,22 +28,17 @@ const Button = styled.button`
 
 const Buttons = (props) => {
 
-    const handleSort = () => {
-        props.onSort();    
-    }
-
-    const handleNewgame = () => {
-        props.onNewGame();
-    }
-
     return(
         <Container>
-            <Button onClick={handleSort}>
-                SORTEAR
+            <Button onClick={() => props.click1()}>
+                {props.name1}
             </Button>
-            <Button onClick={handleNewgame}>
-                NOVO JOGO
+            <Button onClick={() => props.click2()}>
+                {props.name2}
             </Button>
+            {props.name3 == 'Voltar' && <Button onClick={() => props.click3()}>
+                {props.name3}
+            </Button>}
         </Container>
     )
 }

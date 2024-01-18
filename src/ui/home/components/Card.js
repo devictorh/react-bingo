@@ -1,6 +1,8 @@
 import React, {useState, useEffect} from "react";
 import styled from "styled-components";
 
+import Buttons from "./Button";
+
 const Container = styled.div`
     max-width: 100%;
     height: 90%;
@@ -27,9 +29,12 @@ const Thead = styled.th`
 `
 
 const BingoNumber = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-size: 42px;
-    min-height: 80px;
-    min-width: 80px;
+    height: 80px;
+    width: 80px;
     text-align: center;    
     border-radius: 5px;
     margin-bottom: 5px;
@@ -45,7 +50,7 @@ const TCol = styled.td`
     padding: 10px;
 `
 
-const Card = () => {
+const Card = (props) => {
     
     const [bingoCard, setBingoCard] = useState({
         b: [],
@@ -55,15 +60,31 @@ const Card = () => {
         o: []
     })
 
+    var arrNumbersCard = [];
+
+    function checkAlreadyExistsNumber(number) {        
+        if (arrNumbersCard.indexOf(number) !== -1) {
+            return true;
+        }
+        return false;
+    }
+
     function getRandomIntInclusive(min, max) {
         min = Math.ceil(min);
         max = Math.floor(max);
+        var number = Math.floor(Math.random() * (max - min + 1)) + min;        
 
-        return Math.floor(Math.random() * (max - min + 1)) + min;
+        if (checkAlreadyExistsNumber(number)) {            
+            return getRandomIntInclusive(min, max)
+        }else{            
+            arrNumbersCard.push(number);
+        }
+        
+        return number; 
     }
 
     function generateNumbers(min, max) {
-        const numbers = [];
+        const numbers = [];        
         for (let i = 1; i <= 5; i++) {
             numbers.push(
                 { 
@@ -74,19 +95,37 @@ const Card = () => {
         return numbers;
     };
 
+    function getOrder(arr) {
+        return arr.slice().sort(function(obj1, obj2) {
+            const key1 = parseInt(Object.keys(obj1)[0]);
+            const key2 = parseInt(Object.keys(obj2)[0]);
+        
+            return key1 - key2;
+        });
+    }
+
     function initializeBingoCard() {
         setBingoCard({
-            'b': generateNumbers(1, 15),
-            'i': generateNumbers(16, 30),
-            'n': generateNumbers(31, 45),
-            'g': generateNumbers(46, 60),
-            'o': generateNumbers(61, 75),
+            'b': getOrder(generateNumbers(1, 15)),
+            'i': getOrder(generateNumbers(16, 30)),
+            'n': getOrder(generateNumbers(31, 45)),
+            'g': getOrder(generateNumbers(46, 60)),
+            'o': getOrder(generateNumbers(61, 75)),
         });
 
     };
 
-    function setResult(index){
-        console.log('index: '+ index)
+    function setResult(index)
+    {
+        
+    }
+
+    function newCard() {
+        initializeBingoCard();
+    }
+
+    function backToHomePage() {
+        props.setModeGame('');
     }
 
     useEffect(() => {
@@ -115,7 +154,7 @@ const Card = () => {
                                         backgroundColor: numberObj[Object.keys(numberObj)[0]] ? '#da1a29' : '#c6e5d9',
                                         color: numberObj[Object.keys(numberObj)[0]] ? 'white' : 'black'
                                     }}
-                                    onClick={setResult(index)}
+                                    onClick={() => setResult(index)}
                                 > 
                                     {Object.keys(numberObj)[0]}
                                 </BingoNumber>
@@ -124,6 +163,12 @@ const Card = () => {
                     ))}
                 </tbody>
             </Grid>
+            <Buttons 
+                name1={'Nova cartela'} 
+                name2={'Voltar'}
+                click1={newCard}
+                click2={backToHomePage}
+            />
         </Container>
     ) 
 

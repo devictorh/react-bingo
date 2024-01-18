@@ -25,9 +25,7 @@ const Home = () => {
     const [mode, setMode] = useState({'mode': ''});
 
     function setCurrentMode(mode){
-        if (mode.trim() != '') {
-            setMode({'mode': mode})
-        }
+        setMode({'mode': mode});        
     }
 
     return (
@@ -36,8 +34,8 @@ const Home = () => {
             <Container>
             {mode.mode == '' && <Options setMode={setCurrentMode} />}
                 <Action>  
-                    {mode.mode == 'card' && <Card />}
-                    {mode.mode == 'sorter' && <Game />}                    
+                    {mode.mode == 'card' && <Card setModeGame={setCurrentMode} />}
+                    {mode.mode == 'sorter' && <Game setModeGame={setCurrentMode} />}                    
                 </Action>
             </Container>
         </>
