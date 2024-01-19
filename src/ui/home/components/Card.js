@@ -102,7 +102,7 @@ const Card = (props) => {
         return numbers;
     };
 
-    function getOrder(arr) {
+    function ensureOrder(arr) {
         return arr.slice().sort(function(obj1, obj2) {
             const key1 = parseInt(Object.keys(obj1)[0]);
             const key2 = parseInt(Object.keys(obj2)[0]);
@@ -123,14 +123,22 @@ const Card = (props) => {
     };
 
     function setResult(letter, index) {
-         setBingoCard(prevBingoCard => {
-            const bingoCardClone = { ...prevBingoCard };
-            const key = Object.keys(bingoCardClone[letter][index])[0];
-
-            bingoCardClone[letter][index][key] = true;
-            return bingoCardClone;
+        setBingoCard(prevBingoCard => {
+            return {
+                ...prevBingoCard,
+                [letter]: prevBingoCard[letter].map((numberObj, i) => {
+                    if (i === index) {
+                        const number = parseInt(Object.keys(numberObj)[0]);
+                        return {
+                            [number]: !numberObj[number],
+                        };
+                    }
+                    return numberObj;
+                }),
+            };
         });
     }
+    
 
     function newCard() {
         initializeBingoCard();
