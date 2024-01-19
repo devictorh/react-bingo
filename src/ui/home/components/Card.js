@@ -5,7 +5,7 @@ import Buttons from "./Button";
 
 const Container = styled.div`
     max-width: 100%;
-    height: 90%;
+    height: 90%;    
 `
 
 const Grid = styled.table`
@@ -13,6 +13,7 @@ const Grid = styled.table`
     border-collapse: collapse;
     font-family: 'Arial', sans-serif;
     border: 1px solid #ddd;
+    table-layout: fixed; /* Define a largura das colunas de forma fixa */
 `
 
 const Thead = styled.th`
@@ -37,8 +38,13 @@ const BingoNumber = styled.div`
     width: 80px;
     text-align: center;    
     border-radius: 5px;
-    margin-bottom: 5px;
+    margin: 3px;
     font-weight: bold;
+
+    @media (max-width: 600px) {
+        height: 15vw;
+        width: 14vw;
+    }
 
     &:hover {
         cursor: pointer;
@@ -50,7 +56,12 @@ const BingoJoker = styled.div`
     display: flex;
     height: 80px;
     width: 80px;    
-    margin-bottom: 5px;    
+    margin: 3px;   
+    
+    @media (max-width: 600px) {
+        height: 15vw;
+        width: 14vw;
+    }
 `
 
 const TCol = styled.td`

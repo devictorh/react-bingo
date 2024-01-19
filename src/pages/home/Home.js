@@ -18,7 +18,7 @@ const Action = styled.div`
     justify-content: space-between;
     box-sizing: border-box;
     align-items: flex-end;
-    padding: 20px;
+    padding: 20px;    
 `
 
 const Home = () => {
