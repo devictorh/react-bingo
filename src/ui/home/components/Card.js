@@ -46,6 +46,13 @@ const BingoNumber = styled.div`
     }
 `
 
+const BingoJoker = styled.div`
+    display: flex;
+    height: 80px;
+    width: 80px;    
+    margin-bottom: 5px;    
+`
+
 const TCol = styled.td`
     padding: 10px;
 `
@@ -106,18 +113,23 @@ const Card = (props) => {
 
     function initializeBingoCard() {
         setBingoCard({
-            'b': getOrder(generateNumbers(1, 15)),
-            'i': getOrder(generateNumbers(16, 30)),
-            'n': getOrder(generateNumbers(31, 45)),
-            'g': getOrder(generateNumbers(46, 60)),
-            'o': getOrder(generateNumbers(61, 75)),
+            'b': generateNumbers(1, 15),
+            'i': generateNumbers(16, 30),
+            'n': generateNumbers(31, 45),
+            'g': generateNumbers(46, 60),
+            'o': generateNumbers(61, 75),
         });
 
     };
 
-    function setResult(index)
-    {
-        
+    function setResult(letter, index) {
+         setBingoCard(prevBingoCard => {
+            const bingoCardClone = { ...prevBingoCard };
+            const key = Object.keys(bingoCardClone[letter][index])[0];
+
+            bingoCardClone[letter][index][key] = true;
+            return bingoCardClone;
+        });
     }
 
     function newCard() {
@@ -133,7 +145,7 @@ const Card = (props) => {
     }, []);
 
     return (
-        <Container>            
+        <Container>
             <Grid>
                 <thead>
                     <tr>
@@ -147,17 +159,23 @@ const Card = (props) => {
                 <tbody>
                     {Object.keys(bingoCard).map((letter) => (
                         <TCol key={letter}>
-                            {bingoCard[letter].map((numberObj, index) => (
-                                <BingoNumber 
-                                    key={index}
-                                    style={{
-                                        backgroundColor: numberObj[Object.keys(numberObj)[0]] ? '#da1a29' : '#c6e5d9',
-                                        color: numberObj[Object.keys(numberObj)[0]] ? 'white' : 'black'
-                                    }}
-                                    onClick={() => setResult(index)}
-                                > 
-                                    {Object.keys(numberObj)[0]}
-                                </BingoNumber>
+                            { bingoCard[letter].map((numberObj, index) => (
+                                (index == 2 && letter == 'n') ? (
+                                    <BingoJoker>
+                                        <img src="./img/bingo.ico"/>
+                                    </BingoJoker>
+                                ) : (
+                                    <BingoNumber 
+                                        key={index}
+                                        style={{
+                                            backgroundColor: numberObj[Object.keys(numberObj)[0]] ? '#da1a29' : '#c6e5d9',
+                                            color: numberObj[Object.keys(numberObj)[0]] ? 'white' : 'black'
+                                        }}
+                                        onClick={() => setResult(letter, index)}
+                                    > 
+                                        {Object.keys(numberObj)[0]}
+                                    </BingoNumber>
+                                )
                             ))}
                         </TCol>
                     ))}

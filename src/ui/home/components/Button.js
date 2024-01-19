@@ -12,8 +12,8 @@ const Container = styled.div`
 const Button = styled.button`
     cursor: pointer;
     border-style: none;
-    width: 100%;
-    max-width: 250px;
+    width: 150px;
+    
     height: 40px;
     margin-top: 10px;
     border-radius: 10% 10% / 10% 10%;
