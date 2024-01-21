@@ -13,22 +13,27 @@ const Container = styled.div`
 
 const Grid = styled.table`
     width: 100%;
+    height: 100%;
     border-collapse: collapse;
     font-family: 'Arial', sans-serif;
     border: 1px solid #ddd;
+    padding: 5px;
 `
 
 const Thead = styled.th`
-    padding: 5px;
-    font-family: Blockt;    
-    border-bottom: 1px solid #ddd;
-    text-align: center;    
-    font-size: 46px;    
-    background-color: rgb(
-        ${() => Math.floor(Math.random() * 256)},
-        ${() => Math.floor(Math.random() * 256)},
-        ${() => Math.floor(Math.random() * 256)}
-    );
+    font-family: Blockt;
+    text-align: center;
+    font-size: 42px;
+    padding: 10px;
+
+    div {
+        border-radius: 5px;
+        background-color: rgb(
+            ${() => Math.floor(Math.random() * 256)},
+            ${() => Math.floor(Math.random() * 256)},
+            ${() => Math.floor(Math.random() * 256)}
+        );
+    }
 `
 
 const BingoNumber = styled.div`
@@ -36,11 +41,11 @@ const BingoNumber = styled.div`
     height: 30px;
     box-sizing: border-box;
     padding: 6px;
-    border-radius: 5px;    
+    border-radius: 5px;
     margin-bottom: 5px;
     justify-content: center;
-    text-align: center;    
-    font-weight: bold;
+    text-align: center;
+    font-weight: bold;    
 `
 
 const TCol = styled.td`
@@ -49,7 +54,7 @@ const TCol = styled.td`
 
 const Game = (props) => {
     const [currentResult, setCurrentResult] = useState('BOA SORTE');
-    const [totalResults, setTotalResults] = useState([]);    
+    const [totalResults, setTotalResults] = useState([]);
 
     const [bingoCard, setBingoCard] = useState({
         b: [],
@@ -188,11 +193,11 @@ const Game = (props) => {
             <Grid>
                 <thead>
                     <tr>
-                        <Thead>B</Thead>
-                        <Thead>I</Thead>
-                        <Thead>N</Thead>
-                        <Thead>G</Thead>
-                        <Thead>O</Thead>
+                        <Thead><div>B</div></Thead>
+                        <Thead><div>I</div></Thead>
+                        <Thead><div>N</div></Thead>
+                        <Thead><div>G</div></Thead>
+                        <Thead><div>O</div></Thead>
                     </tr>
                 </thead>
                 <tbody>

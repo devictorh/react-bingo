@@ -17,16 +17,19 @@ const Grid = styled.table`
 `
 
 const Thead = styled.th`
-    padding: 5px;
-    font-family: Blockt;    
-    border-bottom: 1px solid #ddd;
+    padding: 10px;
+    font-family: Blockt;
     text-align: center;    
-    font-size: 46px;    
-    background-color: rgb(
-        ${() => Math.floor(Math.random() * 256)},
-        ${() => Math.floor(Math.random() * 256)},
-        ${() => Math.floor(Math.random() * 256)}
-    );
+    font-size: 42px;   
+    
+    div {
+        border-radius: 5px;
+        background-color: rgb(
+            ${() => Math.floor(Math.random() * 256)},
+            ${() => Math.floor(Math.random() * 256)},
+            ${() => Math.floor(Math.random() * 256)}
+        );
+    }
 `
 
 const BingoNumber = styled.div`
@@ -168,11 +171,11 @@ const Card = (props) => {
             <Grid>
                 <thead>
                     <tr>
-                        <Thead>B</Thead>
-                        <Thead>I</Thead>
-                        <Thead>N</Thead>
-                        <Thead>G</Thead>
-                        <Thead>O</Thead>
+                        <Thead><div>B</div></Thead>
+                        <Thead><div>I</div></Thead>
+                        <Thead><div>N</div></Thead>
+                        <Thead><div>G</div></Thead>
+                        <Thead><div>O</div></Thead>
                     </tr>
                 </thead>
                 <tbody>

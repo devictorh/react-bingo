@@ -10,7 +10,7 @@ const Value = styled.p`
 
 const Container = styled.div`
     text-align: center;
-    margin: 30px 5px;
+    margin: 10px 5px;
     width: 100%;
     height: 60px;    
     

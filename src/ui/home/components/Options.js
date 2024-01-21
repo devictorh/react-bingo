@@ -31,10 +31,9 @@ const Button = styled.button`
     margin-top: 10px;
     font-size: 18px;
     border-radius: 10% 10% / 10% 10%;
-
-    &:hover {
-        background-color: #c6e5d9;
-        box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.2);
+    
+    &:hover {        
+        box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
     }
 `
 
