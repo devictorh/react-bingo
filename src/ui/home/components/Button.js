@@ -4,15 +4,15 @@ import '../styles/fonts.css';
 
 const Container = styled.div`
     position: relative;
-    display: flex;    
+    display: flex;
     align-items: center;
-    justify-content: space-between;    
+    justify-content: space-between;
 `
 
 const Button = styled.button`
     cursor: pointer;
     border-style: none;
-    width: 150px;    
+    width: 150px;
     height: 40px;
     margin-top: 10px;
     border-radius: 10% 10% / 10% 10%;
@@ -20,23 +20,19 @@ const Button = styled.button`
     font-size: 18px;
     
 
-    &:hover {       
+    &:hover {
        box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
     }
 `
 
 const Buttons = (props) => {
-
     return(
         <Container>
-            <Button onClick={() => props.click1()}>
+            {props.name1 !== undefined && <Button onClick={() => props.click1()}>
                 {props.name1}
-            </Button>
-            <Button onClick={() => props.click2()}>
+            </Button>}
+            {props.name2 !== undefined && <Button onClick={() => props.click2()}>
                 {props.name2}
-            </Button>
-            {props.name3 == 'Voltar' && <Button onClick={() => props.click3()}>
-                {props.name3}
             </Button>}
         </Container>
     )

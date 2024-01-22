@@ -22,7 +22,7 @@ const Action = styled.div`
 `
 
 const Home = () => {
-    const [mode, setMode] = useState({'mode': ''});
+    const [mode, setMode] = useState({'mode': 'sorter'});
 
     function setCurrentMode(mode){
         setMode({'mode': mode});        
@@ -32,6 +32,7 @@ const Home = () => {
         <>
             <Header />
             <Container>
+                <Options setMode={setCurrentMode}/>
             {mode.mode == '' && <Options setMode={setCurrentMode} />}
                 <Action>  
                     {mode.mode == 'card' && <Card setModeGame={setCurrentMode} />}

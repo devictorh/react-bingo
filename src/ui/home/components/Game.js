@@ -76,8 +76,8 @@ const Game = (props) => {
         initializeBingoCard();
     }
 
-    function backToHomePage() {
-        props.setModeGame('');
+    function handleCardPage() {
+        props.setModeGame('card');
     }
 
     function checkEndGame() {
@@ -222,10 +222,10 @@ const Game = (props) => {
             <Buttons 
                 click1={handleSort} 
                 click2={handleNewGame}
-                click3={backToHomePage}
+                click3={handleCardPage}
                 name1={'Sortear'}
                 name2={'Novo jogo'}
-                name3={'Voltar'}
+                name3={'Cartela'}
             />
         </Container>
     )

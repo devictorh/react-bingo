@@ -1,8 +1,6 @@
 import React, {useState, useEffect} from "react";
 import styled from "styled-components";
 
-import Buttons from "./Button";
-
 const Container = styled.div`
     max-width: 100%;
     height: 90%;    
@@ -69,6 +67,22 @@ const BingoJoker = styled.div`
 
 const TCol = styled.td`
     padding: 10px;
+`
+
+const ButtonNewCard = styled.button`
+    cursor: pointer;
+    border-style: none;
+    width: 100%;
+    height: 40px;
+    margin-top: 10px;
+    border-radius: 10% 10% / 10% 10%;
+    font-family: molot;
+    font-size: 18px;
+    
+
+    &:hover {
+       box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.2);
+    }
 `
 
 const Card = (props) => {
@@ -203,12 +217,7 @@ const Card = (props) => {
                     ))}
                 </tbody>
             </Grid>
-            <Buttons 
-                name1={'Nova cartela'} 
-                name2={'Voltar'}
-                click1={newCard}
-                click2={backToHomePage}
-            />
+            <ButtonNewCard onClick={() => newCard()}>Nova cartela</ButtonNewCard>
         </Container>
     ) 
 
