@@ -5,21 +5,9 @@ import '../styles/fonts.css';
 const Container = styled.div`    
     display: flex;
     align-items: center;
-    padding: 10px;
-    border-bottom: 1px solid #ddd;
+    padding: 10px;    
     justify-content: space-between;
     width: 100%;
-`
-
-const ChoiceDescription = styled.div`
-    width: 100%;
-    margin-top: 20px;
-    text-align: center;
-    justify-content: space-between;
-
-    p {
-        font-family: molot;        
-    }
 `
 
 const Button = styled.button`
@@ -27,27 +15,24 @@ const Button = styled.button`
     border-style: none;    
     width: 250px;    
     height: 30px;
-    font-family: molot;
-    margin-top: 10px;
+    font-family: molot;    
     font-size: 18px;
     border-radius: 10% 10% / 10% 10%;
+    border-bottom: 1px solid #ddd;
     
-    &:hover {        
+    &:hover {
         box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
     }
 `
 
 const Options = (props) => {
     const handleSetMode = (mode) => {
-        props.setMode(mode);        
+        props.setMode(mode);
     }
 
     return(
         <>
-            <ChoiceDescription>
-            <span><p>Escolha o modo que deseja</p></span>
-            </ChoiceDescription>
-            <Container>            
+            <Container>
                 <Button onClick={() => handleSetMode('sorter')}>
                     Sorteador
                 </Button>
